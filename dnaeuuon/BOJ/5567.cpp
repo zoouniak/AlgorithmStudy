@@ -1,41 +1,48 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <algorithm>
 using namespace std;
+int N, M;
 vector<int> v[501];
-int visited[501] = { 0, };
+int visited[501];
 
-
-int dfs(int start, int depth) {
+void bfs(int start) {
+	int count = 0;
+	queue<int> q;
+	q.push(start);
 	visited[start] = true;
-	if (depth >= 2) return 0;
-	int cnt = 0;
-	for (int i = 0; i < v[start].size(); i++) {
-		int next_node = v[start][i];
+
+	for (int i = 0; i < v[q.front()].size(); i++) {
+		int next_node = v[q.front()][i];
 		if (!visited[next_node]) {
-			cnt += 1 + dfs(next_node, depth + 1);
-		}
-		else {
-			cnt += dfs(next_node, depth + 1);
+			q.push(next_node);
+			visited[next_node] = true;
+			count++;
 		}
 	}
-	return cnt;
+	q.pop();
+
+	while (!q.empty()) {
+		for (int i = 0; i < v[q.front()].size(); i++) {
+			int next_node = v[q.front()][i];
+			if (!visited[next_node]) {
+				visited[next_node] = true;
+				count++;
+			}
+		}
+		q.pop();
+	}
+
+	cout << count;
 }
-
 int main() {
-	int n, m;
-	cin >> n >> m;
+	cin >> N >> M;
+	int a, b;
 
-	for (int i = 0; i < m; i++) {
-		int a, b;
+	for (int i = 0; i < M; i++) {
 		cin >> a >> b;
 		v[a].push_back(b);
 		v[b].push_back(a);
 	}
-	for (int i = 1; i <= n; i++) {
-		sort(v[i].begin(), v[i].end());
-	}
-	
-	cout << dfs(1, 0) << endl;
+	bfs(1);
 }
