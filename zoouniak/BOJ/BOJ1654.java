@@ -30,7 +30,6 @@ public class BOJ1654 {
                 start=mid+1;
             }
             else{
-                //개수 부족
                 end=mid-1;
             }
 
