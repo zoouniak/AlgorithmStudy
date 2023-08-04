@@ -28,7 +28,7 @@ public class BOJ2805 {
                     sum += (i - mid);
             }
             if (sum < k) {
-                //나무 부족. 덜 잘라야함
+                //나무 부족. 덜 잘라야함.
                 end = mid - 1;
             } else {
                 start = mid + 1;
