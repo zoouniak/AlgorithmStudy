@@ -28,7 +28,7 @@
 - 기타 (적용 실패한 접근 방식, 개선한 코드 등)
 
 # Commit Message Rule
-[문제출처] 문제이름(번호) / 핵심알고리즘   
+[핵심 알고리즘] 문제이름  
 * * *
 
 자세한 풀이 방법 및 회고는 [노션](https://copper-crown-7e4.notion.site/fc60348902e44592b4e576bfaca684e9?pvs=4)에 작성한다.   
