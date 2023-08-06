@@ -10,7 +10,7 @@ public class BOJ9095 {
         int[] result = new int[11];
         result[1] = 1;//1
         result[2] = 2;//11 2
-        result[3] = 4;// 111 12 21 3
+        result[3] = 4;//111 12 21 3
         //4-3 4-2 4-1
         for (int i = 4; i < 11; i++) {
             result[i] = result[i - 1] + result[i - 2] + result[i - 3];
