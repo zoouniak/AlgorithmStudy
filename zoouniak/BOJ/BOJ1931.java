@@ -17,16 +17,11 @@ public class BOJ1931 {
         Collections.sort(meetings, new Comparator<Meeting>() {
             @Override
             public int compare(Meeting o1, Meeting o2) {
-                if (o1.getStart() > o2.getStart()) {//시작시간이 빠를수록 앞으로
-                    return 1;
-                } else if (o1.getStart() == o2.start) {
-                    if (o1.getEnd() > o2.getEnd()) {//끝 시간이 빠를수록 앞으로
-                        return 1;
-                    } else {
-                        return -1;
-                    }
+                if (o1.start == o2.start) {
+                    //끝 시간이 빠를수록 앞으로
+                    return o1.end-o2.end;
                 } else {
-                    return -1;
+                    return o1.start-o2.start;
                 }
             }
         });
@@ -57,14 +52,5 @@ public class BOJ1931 {
             this.start = start;
             this.end = end;
         }
-
-        public int getStart() {
-            return start;
-        }
-
-        public int getEnd() {
-            return end;
-        }
-
     }
 }
