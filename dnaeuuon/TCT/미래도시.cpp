@@ -7,6 +7,8 @@ int main() {
 	int N, M;
 	cin >> N >> M;
 	
+	// fill(&map[1][1], &map[N][N], INF);
+
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
 			map[i][j] = INF;
