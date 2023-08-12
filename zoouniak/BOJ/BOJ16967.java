@@ -18,7 +18,7 @@ public class BOJ16967 {
             String[] input = br.readLine().split(" ");
             for (int j = 0; j < w + y; j++) {
                 int n = Integer.parseInt(input[j]);
-                if (i < x && i < h&&j<w) {//1행 /1열은 a,b동일.
+                if (i < x && i < h&&j<w) {//0행~x열, 0열~y열은 a,b배열 동일
                     a[i][j] = n;
                 }else if(j<y&&j<w&&i<h){
                     a[i][j]=n;
