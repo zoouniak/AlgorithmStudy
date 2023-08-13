@@ -4,27 +4,21 @@
 using namespace std;
 int INF = 1000000000;
 
-vector<pair<int, int>> graph[300001];
+vector<int> graph[300001];
 int d[300001];
 
 void dijkstra(int start) {
 	d[start] = 0;
-	priority_queue<pair<int, int>> pq;
-	pq.push(make_pair(start, 0));
-
-	while (!pq.empty()) {
-		int current = pq.top().first;
-		int distance = -pq.top().second;
-		pq.pop();
-
-		if (d[current] < distance) continue;
+	queue<int> q;
+	q.push(start);
+	while (!q.empty()) {
+		int current = q.front();
+		q.pop();
 		for (int i = 0; i < graph[current].size(); i++) {
-			int next = graph[current][i].first;
-			int nextDistance = distance + graph[current][i].second;
-
-			if (nextDistance < d[next]) {
-				d[next] = nextDistance;
-				pq.push(make_pair(next, -nextDistance));
+			int next = graph[current][i];
+			if (d[next] == INF) {
+				d[next] = d[current] + 1;
+				q.push(next);
 			}
 		}
 	}
@@ -44,7 +38,7 @@ int main() {
 	for (int i = 0; i < M; i++) {
 		int X, Y;
 		cin >> X >> Y;
-		graph[X].push_back(make_pair(Y, 1));
+		graph[X].push_back(Y);
 	}
 
 	dijkstra(X);
