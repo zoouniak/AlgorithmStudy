@@ -1,65 +1,55 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <queue>
 using namespace std;
-#define INF 1000000000
-int N, M, C;
-int map[100][100];
-int visited[30001] = { 0, };
-int dist[30001];
-int min_node;
+int INF = 1000000000;
 
-int getSmallNode() {
-	int min = INF;
-	int minIndex = 0;
+vector<pair<int, int>> map[30001];
+int d[30001];
 
-	for (int i = 1; i <= N; i++) {
-		if (dist[i] < min && !visited[i]) {
-			min = dist[i];
-			minIndex = i;
-		}
-	}
-	return minIndex;
-}
 void dijkstra(int start) {
-	for (int i = 1; i <= N; i++) {
-		dist[i] = map[start][i];
-	}
-	visited[start] = true;
-	for (int i = 1; i < N; i++) {
-		min_node = getSmallNode();
-		visited[min_node] = true;
-		for (int j = 1; j <= N; j++) {
-			if (!visited[j])
-				if (dist[min_node] + map[min_node][j] < dist[j]) {
-					dist[j] = dist[min_node] + map[min_node][j];
-				}
+	d[start] = 0;
+	priority_queue<pair<int, int>> pq;
+	pq.push(make_pair(start, 0));
+
+	while (!pq.empty()) {
+		int current = pq.top().first;
+		int distance = -pq.top().second;
+		pq.pop();
+
+		if (d[current] < distance) continue;
+		for (int i = 0; i < map[current].size(); i++) {
+			int next = map[current][i].first;
+			int nextDistance = distance + map[current][i].second;
+
+			if (nextDistance < d[next]) {
+				d[next] = nextDistance;
+				pq.push(make_pair(next, -nextDistance));
+			}
 		}
 	}
 }
 
 int main() {
-	int cnt = 0;
+	int N, M, C;
 	cin >> N >> M >> C;
-	fill(&map[1][1], &map[N][N], INF);
-	fill(&dist[0], &dist[N], INF);
 
 	for (int i = 1; i <= N; i++) {
-		for (int j = 1; j <= N; j++) {
-			if (i == j) map[i][j] = 0;
-		}
+		d[i] = INF;
 	}
-	for (int i = 0; i < M; i++) {
+
+	for (int i = 1; i <= M; i++) {
 		int X, Y, Z;
 		cin >> X >> Y >> Z;
-		map[X][Y] = Z;
+		map[X].push_back(make_pair(Y, Z));
 	}
-
 	dijkstra(C);
 	int max = 0;
+	int cnt = -1; // 시작 노드 제외
 	for (int i = 1; i <= N; i++) {
-		if (max < dist[i]) max = dist[i];
-		if (dist[i] != INF) cnt++;
+		if (d[i] == INF) continue;
+		if (max < d[i]) max = d[i];
+		cnt++;
 	}
 	cout << cnt << " " << max;
 }
