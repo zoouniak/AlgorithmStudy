@@ -19,7 +19,7 @@ public class BOJ2178 {
         for(int i=0;i<n;i++){
             String input = br.readLine();
             for(int j=0;j<m;j++){
-                int b = Integer.parseInt(String.valueOf(input.charAt(j)));
+                int b = input.charAt(j)-'0';
                 if(b==1){
                     map[i][j]=1;
                 }
