@@ -8,7 +8,7 @@ public class BOJ1541 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
-        String[] nums = s.split("\\+|-");
+        String[] nums = s.split("[+\\-]");
         int numCnt = 0;
         int sum = 0;
         sum += Integer.parseInt(nums[numCnt++]);
