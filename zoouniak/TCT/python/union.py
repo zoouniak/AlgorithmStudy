@@ -3,8 +3,8 @@
 def find_parent(parent, x):
     # 루트 노드가 아니라면, 루트 노드를 찾을 때까지 재귀적으로 호출
     if parent[x] != x:
-        parent[x]=find_parent(parent,parent[x])
-    #경로 압축 기법을 적용한 find 최적화
+        parent[x] = find_parent(parent, parent[x])
+    # 경로 압축 기법을 적용한 find 최적화
     return x
 
 
@@ -38,6 +38,6 @@ for i in range(1, v + 1):
 print()
 
 # 부모 테이블 내용 출력
-print('부모 테이블:',end='')
-for i in range(1,v+1):
-    print(parent[i],end='')
+print('부모 테이블:', end='')
+for i in range(1, v + 1):
+    print(parent[i], end='')
