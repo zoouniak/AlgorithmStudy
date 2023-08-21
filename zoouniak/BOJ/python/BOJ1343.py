@@ -1,4 +1,3 @@
-import sys
 
 b = input()
 count = 0
@@ -12,7 +11,7 @@ for i in b:
             result = result + "B" * (count % 4)
         else:
             print(-1)
-            sys.exit()
+            exit(0)
         count = 0
         result = result + "."
 if (count % 2 == 0):
@@ -20,5 +19,5 @@ if (count % 2 == 0):
     result = result + "B" * (count % 4)
 else:
     print(-1)
-    sys.exit()
+    exit(0)
 print(result)
