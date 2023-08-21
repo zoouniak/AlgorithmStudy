@@ -1,6 +1,6 @@
 import sys
 
-b = list(input())
+b = input()
 count = 0
 result = ""
 for i in b:
