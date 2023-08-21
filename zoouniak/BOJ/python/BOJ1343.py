@@ -13,7 +13,7 @@ for i in b:
         else:
             print(-1)
             sys.exit()
-        count=0
+        count = 0
         result = result + "."
 if (count % 2 == 0):
     result = result + "AAAA" * (count // 4)
