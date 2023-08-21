@@ -7,7 +7,6 @@ def find_parent(parent, x):
     # 경로 압축 기법을 적용한 find 최적화
     return x
 
-
 # 두 원소가 속한 집합 합치기
 def union_parent(parent, a, b):
     a = find_parent(parent, a)
@@ -16,7 +15,6 @@ def union_parent(parent, a, b):
         parent[b] = a
     else:
         parent[a] = b
-
 
 # 노드의 개수와 간선의 개수(union 연선) 입력 받기
 v, e = map(int, input().split())
@@ -30,6 +28,7 @@ for i in range(1, v + 1):
 for i in range(e):
     a, b = map(int, input().split())
     union_parent(parent, a, b)
+
 # 각 원소가 속한 집합 출력
 print('각 원소가 속한 집합: ', end='')
 for i in range(1, v + 1):
