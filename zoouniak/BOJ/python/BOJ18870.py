@@ -13,6 +13,5 @@ for i in range(1, len(x)):  # 0부터 리스트 길이까지
         result[x[i]] = result[x[i - 1]]
     else:
         result[x[i]] = result[x[i - 1]] + 1
-for i in range(0, len(a)):
-    a[i] = result[a[i]]
-    print(a[i], end=" ")
+for i in a:
+    print(result[i], end=" ")
