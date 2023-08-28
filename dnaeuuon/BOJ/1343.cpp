@@ -11,27 +11,28 @@ int main() {
 
 	for (int i = 0; i < str.length(); i++) {
 		if (str[i] == 'X') count++;
-		if (count == 4) {
-			result += "AAAA";
-			count = 0;
-		}
-		if (str[i] == '.') {
-			if (count == 2) {
-				result += "BB";
-				count = 0;
-			}
-			else if (count == 0) {
+		else {
+			if (count % 2 == 0) {
+				for (int j = 0; j < (count / 4); j++) {
+					result += "AAAA";
+				}
+				for (int j = 0; j < (count % 4); j++) {
+					result += "B";
+				}
 			}
 			else failed = true;
 			result += ".";
 			count = 0;
 		}
 	}
-	if (count == 4)
-		result += "AAAA";
-	else if (count == 2)
-		result += "BB";
-	else if (count == 0);
+	if (count % 2 == 0) {
+		for (int j = 0; j < (count / 4); j++) {
+			result += "AAAA";
+		}
+		for (int j = 0; j < (count % 4); j++) {
+			result += "B";
+		}
+	}
 	else failed = true;
 
 	if (failed) cout << -1;
