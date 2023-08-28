@@ -1,3 +1,6 @@
+import sys
+
+input = sys.stdin.readline
 n = int(input())
 x = list(map(int, input().split()))
 # 나보다 작은 원소의 개수
