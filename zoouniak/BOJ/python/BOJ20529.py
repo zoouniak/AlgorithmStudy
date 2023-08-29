@@ -9,9 +9,9 @@ for _ in range(t):
         print(0)
     else:
         min = 987654321
-        for i in range(0, len(mbti)):
-            for j in range(i + 1, len(mbti)):
-                for z in range(j + 1, len(mbti)):
+        for i in range(n-2):
+            for j in range(i + 1,n-1):
+                for z in range(j + 1,n):
                     cnt = 0
                     for k in range(4):
                         if mbti[i][k] != mbti[j][k]:
