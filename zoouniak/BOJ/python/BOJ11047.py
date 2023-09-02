@@ -4,7 +4,7 @@ for _ in range(n):
     money.append(int(input()))
 money.sort(reverse=True)
 coin = 0
-for i in range(n):
+for i in reversed(range(n)):
     coin += k // money[i]
     k = k % money[i]
     if k == 0:
