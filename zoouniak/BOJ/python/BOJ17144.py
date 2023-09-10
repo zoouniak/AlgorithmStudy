@@ -39,7 +39,6 @@ def fresh():
     for i in range(c - 1, 0, -1):
         room[startX][i] = room[startX][i - 1]
     room[startX][1] = 0
-    room[startX][0] = -1
 
     startX = air[1][0]
     for i in range(startX + 1, r - 1):
@@ -51,7 +50,6 @@ def fresh():
     for i in range(c - 1, 0, -1):
         room[startX][i] = room[startX][i - 1]
     room[startX][1] = 0
-    room[startX][0] = -1
 
 
 for _ in range(t):
