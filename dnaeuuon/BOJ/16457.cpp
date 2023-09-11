@@ -3,40 +3,14 @@
 #include <algorithm>
 using namespace std;
 int arr[21];
+vector<int> v;
 vector<int> M[100];
+int answer = 0;
 int n, m, k;
 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL), cout.tie(NULL);
-
-	cin >> n >> m >> k;
-
-	vector<int> v;
-	for (int i = 1; i < 2 * n; i++) {
-		v.push_back(i);
-	}
-	vector<bool> temp(v.size(), false);
-	for (int i = 0; i < n; i++) {
-		temp[i] = true;
-	}
-	for (int i = 0; i < m; i++) {
-		for (int j = 0; j < k; j++) {
-			int input;
-			cin >> input;
-			M[i].push_back(input);
-		}
-	}
-
-	int max = 0;
-	do {
-		int depth = 0;
+void combination(int depth, int start) {
+	if (depth == n) {
 		int result = 0;
-		for (int i = 0; i < v.size(); ++i) {
-			if (temp[i] == true) {
-				arr[depth++] = v[i];
-			}		
-		}
 		for (int i = 0; i < m; i++) {
 			int count = 0;
 			for (int j = 0; j < k; j++) {
@@ -45,9 +19,33 @@ int main() {
 				}
 			}
 			if (count == k) result++;
+			}
+		if (answer < result) answer = result;
 		}
-		if (max < result) max = result;
-	} while (next_permutation(v.begin(), v.end()));
+	for (int i = start; i <= 2 * n; i++) {
+		arr[depth] = v[i];
+		combination(depth + 1, i + 1);
+	}
+}
 
-	cout << max;
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL), cout.tie(NULL);
+
+	cin >> n >> m >> k;
+	
+	for (int i = 1; i <= 2 * n; i++) {
+		v.push_back(i);
+	}
+
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < k; j++) {
+			int input;
+			cin >> input;
+			M[i].push_back(input);
+		}
+	}
+
+	combination(0, 0);
+	cout << answer;
 }
