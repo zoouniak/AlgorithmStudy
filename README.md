@@ -1,6 +1,6 @@
 # Algorithm Study
 > 코딩테스트 실력 향상을 위한 스터디입니다.
-* 기간 : 2023년 7월 19일~   
+* 기간 : 2023년 7월 19일~  2023년 9월 26일(무한 과제로 인해 휴업 중)     
 * 회의 : 매일 22시(주말엔 22시 30분)   
 * 참고 : [백준](https://www.acmicpc.net/), [이코테 도서](http://product.kyobobook.co.kr/detail/S000001810273?LINK=NVB&NaPm=ct%3Dlksgky88%7Cci%3D488ce4b4f48626d07d2064b821d57b14ee0f814b%7Ctr%3Dboksl1%7Csn%3D5342564%7Chk%3Dc57b5de58299b269bc6bbf84ba7888d8f775211b)  
 * 언어 : java->python([@zoouniak](https://github.com/zoouniak)), c++([@bye-on](https://github.com/bye-on))   
