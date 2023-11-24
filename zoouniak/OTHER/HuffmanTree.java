@@ -21,7 +21,7 @@ n개 문자열의 길이
  */
 public class HuffmanTree {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("D://코테 준비//zoouniak//OTHER//sol3.txt"));
+        Scanner sc = new Scanner(new File("sol3.txt"));
         int t = Integer.parseInt(sc.nextLine());
         for (int x = 0; x < t; x++) {
             int n = Integer.parseInt(sc.nextLine());
