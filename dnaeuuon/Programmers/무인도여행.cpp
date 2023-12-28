@@ -4,8 +4,7 @@ using namespace std;
 #include <vector>
 #include <queue>
 #include <algorithm>
-int X, Y;
-
+// int X, Y;
 int dx[4] = {0, 0, -1, 1};
 int dy[4] = {1, -1, 0, 0};
 bool visited[101][101];
@@ -27,7 +26,7 @@ int bfs(vector<string> maps, int a, int b, int height, int width) {
             int nx = x + dx[i];
             int ny = y + dy[i];
             
-            if(nx < 0 || ny < 0 || nx >= X || ny >= Y) continue;
+            if(nx < 0 || ny < 0 || nx >= height || ny >= width) continue;
             
             if(!visited[nx][ny] && maps[nx][ny] != 'X') {
                     q.push(make_pair(nx, ny));
@@ -40,9 +39,9 @@ int bfs(vector<string> maps, int a, int b, int height, int width) {
 
 vector<int> solution(vector<string> maps) {
     vector<int> answer;
-    int X = maps.size();
-    int Y = maps[0].size();
-    
+    // X = map[0].size();
+		// Y = map.size();
+
     for(int i = 0; i < maps.size(); i++) {
         for(int j = 0; j < maps[i].size(); j++) {
             if(maps[i][j] != 'X' && !visited[i][j]) {
